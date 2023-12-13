@@ -5,10 +5,10 @@ import CourseCard from "./cards";
 //This is a dummy data for testing purposes
 const courses = [
   {
-    name: "Course 1",
-    image: "/course1.svg",
-    info: "Course 1 info",
-    instructor: "Course 1 instructor",
+    name: "Course",
+    image: "/course.svg",
+    info: "Course info",
+    instructor: "Course instructor",
     path: "/course",
   },
 ]
