@@ -2,7 +2,7 @@ import Button from '@/app/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Courses() {
+export default function NoCourses() {
     return (
         <div className='flex flex-col items-center justify-center py-2'>
             <h1 className='text-3xl font-bold'>Welcome Username</h1>
