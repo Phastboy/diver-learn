@@ -1,0 +1,30 @@
+'use client'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+
+const links = [
+    {
+        name: "dashboard",
+        path: "/dashboard",
+    },{
+        name: "settings",
+        path: "/settings",
+    }
+]
+export default function Nav() {
+    const pathname = usePathname();
+    return (
+        <>
+            {links.map((link) => (
+                <Link href={link.path} key={link.name}
+                className={clsx(
+                    '',
+                    { '': pathname === link.path })}
+                >
+                    <p>{link.name}</p>
+                </Link>
+            ))}
+        </>
+    );
+}
