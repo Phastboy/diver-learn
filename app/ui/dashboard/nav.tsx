@@ -15,7 +15,7 @@ const links = [
 export default function Nav() {
     const pathname = usePathname();
     return (
-        <>
+        <div className='flex justify-between items-center gap-2 p-3'>
         {links.map((link) => (
             <Link href={link.path} key={link.name}
             className={clsx(
@@ -25,6 +25,6 @@ export default function Nav() {
                 <p>{link.name}</p>
             </Link>
         ))}
-        </>
+        </div>
     );
 }
