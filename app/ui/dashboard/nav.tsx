@@ -19,10 +19,11 @@ export default function Nav() {
         {links.map((link) => (
             <Link href={link.path} key={link.name}
             className={clsx(
-                'flex items-center justify-center gap-2 rounded-md p-3',
-                { active: pathname === link.path })}
+                "flex flex-row items-center",
+                pathname === link.path && "text-blue-500"
+              )}
             >
-                <p>{link.name}</p>
+                {link.name}
             </Link>
         ))}
         </div>

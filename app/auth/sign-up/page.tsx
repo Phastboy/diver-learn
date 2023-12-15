@@ -92,7 +92,7 @@ export default function SignUp(){
         }
         </Button>
       </form>
-      <p>Already have an account? <Link href='/auth/login'>Login</Link></p>
+      <p>Already have an account? <Link href='/auth/login' className='text-blue-500'>Sign In</Link></p>
       <Button className='mx-auto'>Sign Up with Google</Button>
     </div>
   )
