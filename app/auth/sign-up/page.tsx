@@ -69,7 +69,7 @@ export default function SignUp(){
   }
 
   return(
-    <div className='justify-center items-center flex flex-col space-y-5 h-screen'>
+    <div className='justify-center items-center flex flex-col space-y-5 max-h-screen'>
       <Image
         src='/loginBackground.svg'
         alt='backgroundCover'
@@ -93,6 +93,7 @@ export default function SignUp(){
         </Button>
       </form>
       <p>Already have an account? <Link href='/auth/login'>Login</Link></p>
+      <Button className='mx-auto'>Sign Up with Google</Button>
     </div>
   )
 }

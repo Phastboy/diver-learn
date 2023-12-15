@@ -47,7 +47,12 @@ export default function Login(){
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-2 space-y-5">
+    <div className="flex flex-col items-center justify-center max-h-screen p-2 space-y-5">
+      <Image
+        src='/loginBackground.svg'
+        alt='Login Background'
+        fill={true}
+      />
       <Image
         src='/scholar.svg'
         alt='Scholar'
@@ -61,6 +66,8 @@ export default function Login(){
         <Button className='mx-auto'>Login</Button>
       </form>
       <p>Don't have an account? <Link href="/auth/register">Register</Link></p>
+      <Button className='mx-auto' onClick={() => router.push('/auth/google')}>
+        Continue with Google</Button>
     </div>
   );
 }

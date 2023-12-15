@@ -39,7 +39,7 @@ export default function Verify() {
   }, [success]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-2 space-y-5">
+    <div className="flex flex-col items-center justify-center max-h-screen p-2 space-y-5">
       <Image
         src='/scholar.svg'
         alt='Scholar'

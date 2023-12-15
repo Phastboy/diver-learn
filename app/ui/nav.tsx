@@ -6,10 +6,10 @@ import clsx from "clsx";
 const links = [
     {
         name: "dashboard",
-        path: "/dashboard",
+        href: "/dashboard",
     },{
         name: "settings",
-        path: "/settings",
+        href: "/settings",
     }
 ]
 export default function Nav() {
@@ -17,10 +17,9 @@ export default function Nav() {
     return (
         <>
             {links.map((link) => (
-                <Link href={link.path} key={link.name}
-                className={clsx(
-                    '',
-                    { '': pathname === link.path })}
+                <Link href={link.href} key={link.name}
+                className={clsx('px-4 py-2',
+                    { 'bg-sky-100 text-blue-600' : pathname === link.href })}
                 >
                     <p>{link.name}</p>
                 </Link>
