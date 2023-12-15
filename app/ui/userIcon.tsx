@@ -3,54 +3,50 @@ import { useState, useEffect } from 'react';
 import { User } from 'lucide-react';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import { fetchUser } from '../lib/userData';
 
 const UserIcon = () => {
-  const [user, setUser] = useState({ name: '', picture: ''});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [user, setUser] = useState({ name: '', picture: ''});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-  async function fetchUser() {
-    try {
-        const res= await fetch('/api/user');
-        const data= await res.json();
-        if (res.status === 200) {
-            setUser(data);
-        }else{
-            setError(data);
-        }
-    } catch (error) {
-        console.log(error);
-    } finally {
-        setLoading(false);
-        //my dummy data
-        setUser({
-            name: 'Hammed Anuoluwapo',
-            picture: 'https://github.com/Phastboy.png',
-        }); 
-    }
-  }
     useEffect(() => {
-        fetchUser();
+        fetchUser().then((user) => {
+            setUser(user);
+            setLoading(false);
+        }).catch((e) => {
+            setError(true);
+            setLoading(false);
+        });
     }, []);
+
     const fallback = (
-        <div className='flex items-center justify-center w-8 h-8 rounded-full bg-gray-200'>
-            <User/>
+        <div className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full">
+            <User size={16} />
         </div>
     );
-    if (loading) return <Suspense fallback={fallback}/>;
-    if (error) return <Suspense fallback={fallback}/>;
+
+    if (loading) {
+        return fallback;
+    }
+
+    if (error) {
+        return fallback;
+    }
+
     return (
-        <Suspense fallback={fallback}>
-            <div className='flex items-center justify-center w-8 h-8 rounded-full bg-gray-200'>
+        <div className="relative">
+            <Suspense fallback={fallback}>
                 <Image
                     src={user.picture}
                     alt={user.name}
                     width={32}
                     height={32}
-                    className='rounded-full'
+                    className="rounded-full"
                 />
-            </div>
-        </Suspense>
+            </Suspense>
+        </div>
     );
 }
+    
 export default UserIcon;
