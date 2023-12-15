@@ -4,8 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <>
-      <div className='max-h-screen'>
+    <div className="max-h-screen space-y-5">
         <Image
           src="/landing.svg"
           alt={'Landing'}
@@ -15,7 +14,6 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center py-2">
           <Link href='/auth/sign-up'><Button>Get started</Button></Link>
         </div>
-      </div>
-    </>
-  )
+    </div>
+  );
 }
