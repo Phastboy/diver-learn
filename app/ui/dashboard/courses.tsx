@@ -23,7 +23,6 @@ export default function Courses() {
   console.log(courses);
   return (
     <div className="flex flex-col items-center justify-center py-2">
-      <h1 className="text-3xl font-bold">Welcome Username</h1>
       <div className="flex flex-row flex-wrap justify-center">
       {courses.map((course) => (
         <CourseCard

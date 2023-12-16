@@ -27,9 +27,9 @@ const links = [
 
 export default function Nav() {
     return (
-        <div className="flex flex-row justify-between items-center px-4 py-2">
+        <div className="flex flex-row justify-between items-center px-4 py-3">
             <div className="flex flex-row items-center">
-                <div className="flex flex-row items-center ml-4">
+                <div className="flex flex-row items-center ml-4 space-x-5">
                     {links.map((link) => (
                         <Link href={link.path} key={link.name} className={clsx("flex flex-row items-center px-2 py-1 rounded-lg transition duration-200 ease-in-out hover:bg-gray-200", usePathname() === link.path ? "bg-gray-200" : "")}>
                                 <link.icon className="w-5 h-5" />

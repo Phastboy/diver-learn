@@ -5,7 +5,6 @@ import Image from 'next/image';
 export default function NoCourses() {
     return (
         <div className='flex flex-col items-center justify-center py-2'>
-            <h1 className='text-3xl font-bold'>Welcome Username</h1>
             <Image
                 src='/3d-rendering-cartoon-like-girl-reading 1.svg'
                 alt='No Courses'
