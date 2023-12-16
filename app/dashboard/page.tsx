@@ -22,17 +22,6 @@ export default function Dashboard() {
     });
   }, []);
 
-  if (loading) {
-    return (
-      <div>
-        <Nav />
-        <div className="flex justify-center items-center h-screen">
-          <h1 className="text-2xl font-bold">Loading...</h1>
-        </div>
-      </div>
-    );
-  }
-
   if (error) {
     return (
       <div>
@@ -53,7 +42,6 @@ export default function Dashboard() {
   } else {
     return (
       <div>
-        <Nav />
         <h1 className="text-2xl font-bold text-center mt-8">Welcome, {name}!</h1>
         <NoCourses />
       </div>
