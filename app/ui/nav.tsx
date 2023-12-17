@@ -1,10 +1,10 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Cog, Bell, BellDot } from "lucide-react";
+import { Home, Cog, Bell } from "lucide-react";
 import UserNav from "./userNav";
-import { useState, useEffect } from 'react';
 import clsx from "clsx";
+import 
 
 
 
@@ -31,7 +31,8 @@ export default function Nav() {
             <div className="flex flex-row items-center">
                 <div className="flex flex-row items-center ml-4 space-x-5">
                     {links.map((link) => (
-                        <Link href={link.path} key={link.name} className={clsx("flex flex-row items-center px-2 py-1 rounded-lg transition duration-200 ease-in-out hover:bg-gray-200", usePathname() === link.path ? "bg-gray-200" : "")}>
+                        <Link href={link.path} key={link.name} className={clsx("flex flex-row items-center px-2 py-1 rounded-lg transition duration-200 ease-in-out hover:bg-gray-50 hover:text-black",  { "bg-gray-100 text-black" : usePathname() === link.path})}
+                        onClick={handleVibrate}>
                                 <link.icon className="w-5 h-5" />
                         </Link>
                     ))}
