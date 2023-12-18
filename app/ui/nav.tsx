@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { Home, Cog, Bell } from "lucide-react";
 import UserNav from "./userNav";
 import clsx from "clsx";
-import 
+import { handleVibrate } from '@/app/ux/vibrate';
 
 
 
