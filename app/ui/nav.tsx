@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { Home, Cog, Bell } from "lucide-react";
 import UserNav from "./userNav";
 import clsx from "clsx";
-import { handleVibrate } from '@/app/ux/vibrate';
+import { handleClick } from '@/app/ux/haptics';
 
 
 
@@ -32,7 +32,7 @@ export default function Nav() {
                 <div className="flex flex-row items-center ml-4 space-x-5">
                     {links.map((link) => (
                         <Link href={link.path} key={link.name} className={clsx("flex flex-row items-center px-2 py-1 rounded-lg transition duration-200 ease-in-out hover:bg-gray-50 hover:text-black",  { "bg-gray-100 text-black" : usePathname() === link.path})}
-                        onClick={handleVibrate}>
+                        onClick={handleClick}>
                                 <link.icon className="w-5 h-5" />
                         </Link>
                     ))}
