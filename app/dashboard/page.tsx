@@ -1,7 +1,6 @@
 'use client'
 import Courses from '@/app/ui/dashboard/courses';
 import NoCourses from '@/app/ui/dashboard/noCourses';
-import Nav from '@/app/ui/nav';
 import { useState, useEffect } from 'react';
 import { fetchUser } from '../lib/userData';
 
@@ -34,7 +33,6 @@ export default function Dashboard() {
   } else if (courses) {
     return (
       <div>
-        <Nav />
         <h1 className="text-2xl font-bold text-center mt-8">Welcome, {name}!</h1>
         <Courses courses={courses} name={name} />
       </div>
