@@ -1,8 +1,9 @@
+'use client'
 import UserIcon from "./userIcon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchUser } from '../lib/userData';
 
 const links = [
@@ -58,8 +59,8 @@ export default function UserNav() {
                             )}>
                             {link.name}
                     </Link>
-                ))}
+                ))};
             </div>
         </div>
     );
-}
+};
