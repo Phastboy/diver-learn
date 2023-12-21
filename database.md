@@ -34,6 +34,7 @@ erDiagram
 	string user_id FK
 	string status
 	}
+	ASSIGNMENT ||--o{ SUBMISSION : requires
 	USER ||--o| SUBMISSION : return
 	SUBMISSION {
 	string assignment_id FK
