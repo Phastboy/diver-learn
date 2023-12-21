@@ -17,6 +17,7 @@ erDiagram
 	string course_id PK
 	string instructor_id FK
 	}
+	COURSE ||--o{ ENROLLMENT : has
 	COURSE ||--o{ ASSIGNMENT : give
 	ASSIGNMENT {
 	string assignment_id PK
@@ -26,7 +27,7 @@ erDiagram
 	string due_date
 	int point
 	}
-	USER }|--|| ENROLLMENT : may
+	USER ||--|{ ENROLLMENT : may
 	ENROLLMENT {
 	string enrollment_id PK
 	string course_id FK
