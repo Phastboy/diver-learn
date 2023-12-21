@@ -4,16 +4,42 @@ erDiagram
 	USER {
 	string name
 	string email
-	string id
+	string user_id
+	}
+	INSTRUCTOR }|--o{ COURSE: create
+	INSTRUCTOR {
+	string name
+	string instructor_id
 	}
 	COURSE{
 	string title
-	array assignment
-	array quiz
+	string description
+	string course_id
+	string instructor_id
 	}
-	INSTRUCTOR }|--o{ COURSE: guides
-	INSTRUCTOR {
-	string name
-	string id
+	COURSE |--o{ ASSIGNMENT
+	ASSIGNMENT {
+	string assignment_id
+	string course_id
+	string title
+	string description
+	string due_date
+	int point
+	}
+	USER |--o{ ENROLLMENT
+	ENROLLMENT {
+	array enrollment_id
+	array course_id
+	array user_id
+	string status
+	}
+	USER |--o| SUBMISSION
+	SUBMISSION {
+	string assignment_id
+	string submission_id
+	string user_id
+	string submission_date
+	int score
+	string feedback
 	}
 ```
