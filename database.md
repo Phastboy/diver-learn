@@ -17,7 +17,7 @@ erDiagram
 	string course_id
 	string instructor_id
 	}
-	COURSE |--o{ ASSIGNMENT
+	COURSE ||--o{ ASSIGNMENT : give
 	ASSIGNMENT {
 	string assignment_id
 	string course_id
@@ -26,14 +26,14 @@ erDiagram
 	string due_date
 	int point
 	}
-	USER |--o{ ENROLLMENT
+	USER }|--|| ENROLLMENT : may
 	ENROLLMENT {
-	array enrollment_id
-	array course_id
-	array user_id
+	string enrollment_id
+	string course_id
+	string user_id
 	string status
 	}
-	USER |--o| SUBMISSION
+	USER ||--o| SUBMISSION : return
 	SUBMISSION {
 	string assignment_id
 	string submission_id
