@@ -38,6 +38,7 @@ erDiagram
 		string assignment_title
 		string assignment_description
 		date due_date
+		int max_score
 	}
 	QUIZ_RESPONSE {
 		string response_id PK
@@ -45,6 +46,14 @@ erDiagram
 		string student_id FK
 		string[] student_answer
 		int score
+	}
+	ASSIGNMENT_SUBMISSION {
+		string submission_id PK
+		string assignment_id FK
+		string student_id FK
+		string submission_text
+		date submission_date
+		int grade
 	}
 	PROGRESS {
 		string progress_id PK
@@ -65,7 +74,7 @@ erDiagram
 	STUDENT ||--o| QUIZ_RESPONSE : attempt
 	STUDENT ||--o| MESSAGE : send
 	STUDENT ||--o| MESSAGE : view
-	STUDENT ||--o| ASSIGNMENT : submit
+	STUDENT ||--o| ASSIGNMENT_SUBMISSION : submit
 	INSTRUCTOR ||--o{ COURSE : manage
 	INSTRUCTOR ||--o{ QUIZ : create
 	INSTRUCTOR ||--o{ ASSIGNMENT : create
