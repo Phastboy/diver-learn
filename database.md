@@ -76,6 +76,14 @@ erDiagram
 		string message_text
 		date submission_date
 	}
+	LECTURE {
+		string lecture_id PK
+		string course_id FK
+		string instructor_id FK
+		string lecture_title
+		string lecture_content
+		date lecture_date
+	}
 	STUDENT ||--o{ PROGRESS : view
 	STUDENT ||--o| QUIZ_RESPONSE : attempt
 	STUDENT ||--o| MESSAGE : send
@@ -86,12 +94,14 @@ erDiagram
 	INSTRUCTOR ||--o{ QUIZ : create
 	INSTRUCTOR ||--o{ ASSIGNMENT : create
 	INSTRUCTOR ||--o| ASSIGNMENT_SUBMISSION : grade
+	INSTRUCTOR ||--o{ LECTURE : create
 	INSTRUCTOR ||--o| MESSAGE : respond
 	INSTRUCTOR ||--o| MESSAGE : view
 	COURSE ||--o| MESSAGE : receive
 	COURSE ||--o{ QUIZ : create
 	COURSE ||--o{ ASSIGNMENT : create
 	COURSE ||--o| ENROLLMENT : enroll
+	COURSE ||--o{ LECTURE : create
 	QUIZ ||--o{ QUIZ_RESPONSE : grade
 	QUIZ_RESPONSE ||--o| QUIZ_RESPONSE : review
 	PROGRESS ||--o{ QUIZ_RESPONSE : update
