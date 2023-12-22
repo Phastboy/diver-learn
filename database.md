@@ -18,8 +18,8 @@ erDiagram
 	string course_id PK
 	string title
 	string description
-	string start_date
-	string end_date
+	date start_date
+	date end_date
 	string instructor_id FK
 	}
 	QUIZ {
@@ -27,14 +27,15 @@ erDiagram
 	string course_id FK
 	string instructor_id FK
 	string quiz_question
+	string[] options
 	string correct_answer
-	string creation_date
+	date creation_date
 	}
 	QUIZ_RESPONSE {
 	string response_id PK
 	string quiz_id FK
 	string student_id FK
-	string student_answer
+	string[] student_answer
 	int score
 	}
 	PROGRESS {
@@ -50,7 +51,7 @@ erDiagram
 	string receiver_id FK
 	string course_id FK
 	string message_text
-	string submission_date
+	date submission_date
 	}
 	STUDENT ||--o{ PROGRESS : view
 	STUDENT ||--o| QUIZ_RESPONSE : attempt
