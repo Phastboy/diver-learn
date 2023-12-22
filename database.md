@@ -22,35 +22,13 @@ erDiagram
 	string end_date
 	string instructor_id FK
 	}
-	ENROLLMENT {
-	string enrollment_id PK
-	string course_id FK
-	string student_id FK
-	string status
-	}
-	ASSIGNMENT {
-	string assignment_id PK
-	string course_id FK
-	string title
-	string description
-	string due_date
-	int max_score
-	bool is_quiz
-	}
-	SUBMISSION {
-	string submission_id PK
-	string assignment_id FK
-	string student_id FK
-	string submission_date
-	int score
-	string feedback
-	}
 	QUIZ {
 	string quiz_id PK
-	string assignment_id FK
+	string course_id FK
 	string instructor_id FK
 	string quiz_question
 	string correct_answer
+	string creation_date
 	}
 	QUIZ_RESPONSE {
 	string response_id PK
@@ -59,19 +37,32 @@ erDiagram
 	string student_answer
 	int score
 	}
-	STUDENT ||--o{ ENROLLMENT : participate
-	STUDENT ||--o| SUBMISSION : submit
-	STUDENT ||--o{ FEEDBACK : provide
+	PROGRESS {
+	string progress_id PK
+	string student_id FK
+	string course_id FK
+	int quiz_count
+	int total_score
+	}
+	MESSAGE {
+	string message_id PK
+	string sender_id FK
+	string receiver_id FK
+	string course_id FK
+	string message_text
+	string submission_date
+	}
+	STUDENT ||--o{ PROGRESS : view
 	STUDENT ||--o| QUIZ_RESPONSE : attempt
+	STUDENT ||--o| MESSAGE : send
+	STUDENT ||--o| MESSAGE : view
 	INSTRUCTOR ||--o{ COURSE : manage
-	INSTRUCTOR ||--o{ ASSIGNMENT : create
 	INSTRUCTOR ||--o{ QUIZ : create
-	ENROLLMENT ||--o| QUIZ_RESPONSE : include
-	COURSE ||--o{ ENROLLMENT : manage
-	COURSE ||--o{ ASSIGNMENT : create
+	INSTRUCTOR ||--o| MESSAGE : respond
+	INSTRUCTOR ||--o| MESSAGE : view
+	COURSE ||--o| MESSAGE : receive
 	COURSE ||--o{ QUIZ : create
-	ASSIGNMENT ||--o{ SUBMISSION : receive
-	ASSIGNMENT ||--o{ QUIZ : include
 	QUIZ ||--o{ QUIZ_RESPONSE : grade
 	QUIZ_RESPONSE ||--o| QUIZ_RESPONSE : review
+	PROGRESS ||--o{ QUIZ_RESPONSE : update
 ```
