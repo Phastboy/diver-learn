@@ -1,12 +1,11 @@
 ```mermaid
 erDiagram
-	USER }|--o{ ENROLLMENT : enroll
-	USER {
-	string user_id PK
+	STUDENT }|--o{ ENROLLMENT : enroll
+	STUDENT {
+	string student_id PK
 	string name
 	string email
 	string password
-	string role
 	}
 	INSTRUCTOR }|--o{ COURSE: create
 	INSTRUCTOR {
@@ -14,7 +13,6 @@ erDiagram
 	string name
 	string email
 	string password
-	string role
 	}
 	COURSE{
 	string course_id PK
@@ -34,20 +32,19 @@ erDiagram
 	string due_date
 	int max_score
 	}
-	USER ||--|{ ENROLLMENT : participate
-	USER ||--o| SUBMISSION : submit
-	USER ||--o{ FEEDBACK : provide
+	STUDENT ||--|{ ENROLLMENT : participate
+	STUDENT ||--o| SUBMISSION : submit
+	STUDENT ||--o{ FEEDBACK : provide
 	ENROLLMENT {
 	string enrollment_id PK
 	string course_id FK
-	string user_id FK
+	string student_id FK
 	string status
 	}
-	ASSIGNMENT ||--o{ SUBMISSION : receive
 	SUBMISSION {
 	string submission_id PK
 	string assignment_id FK
-	string user_id FK
+	string student_id FK
 	string submission_date
 	int score
 	string feedback
@@ -55,7 +52,7 @@ erDiagram
 	FEEDBACK {
 	string feedback_id PK
 	string submission_id FK
-	string user_id FK
+	string student_id FK
 	string feedback_text
 	int rating
 	string feedback_date
