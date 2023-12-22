@@ -1,6 +1,6 @@
 ```mermaid
 erDiagram
-	STUDENT }|--o{ ENROLLMENT : enroll
+	STUDENT }|--o{ ENROLLMENT : participate
 	STUDENT {
 	string student_id PK
 	string name
@@ -32,7 +32,6 @@ erDiagram
 	string due_date
 	int max_score
 	}
-	STUDENT ||--|{ ENROLLMENT : participate
 	STUDENT ||--o| SUBMISSION : submit
 	STUDENT ||--o{ FEEDBACK : provide
 	ENROLLMENT {
