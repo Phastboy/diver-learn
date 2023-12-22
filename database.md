@@ -40,6 +40,12 @@ erDiagram
 		date due_date
 		int max_score
 	}
+	ENROLLMENT {
+		string enrollment_id PK
+		string student_id FK
+		string course_id FK
+		date enrollment_date
+	}
 	QUIZ_RESPONSE {
 		string response_id PK
 		string quiz_id FK
@@ -75,14 +81,17 @@ erDiagram
 	STUDENT ||--o| MESSAGE : send
 	STUDENT ||--o| MESSAGE : view
 	STUDENT ||--o| ASSIGNMENT_SUBMISSION : submit
+	STUDENT ||--o| ENROLLMENT : enroll
 	INSTRUCTOR ||--o{ COURSE : manage
 	INSTRUCTOR ||--o{ QUIZ : create
 	INSTRUCTOR ||--o{ ASSIGNMENT : create
+	INSTRUCTOR ||--o| ASSIGNMENT_SUBMISSION : grade
 	INSTRUCTOR ||--o| MESSAGE : respond
 	INSTRUCTOR ||--o| MESSAGE : view
 	COURSE ||--o| MESSAGE : receive
 	COURSE ||--o{ QUIZ : create
 	COURSE ||--o{ ASSIGNMENT : create
+	COURSE ||--o| ENROLLMENT : enroll
 	QUIZ ||--o{ QUIZ_RESPONSE : grade
 	QUIZ_RESPONSE ||--o| QUIZ_RESPONSE : review
 	PROGRESS ||--o{ QUIZ_RESPONSE : update
