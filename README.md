@@ -34,3 +34,49 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+```mermaid
+graph TD
+
+  subgraph User_Interface
+    A[Login Screen]
+    B[Dashboard]
+    C[Course Page]
+    D[Lecture Page]
+    E[Quiz Page]
+    F[Assignment Page]
+    G[Submission Page]
+    H[Grade Page]
+    I[Progress Page]
+    J[Messages]
+  end
+
+  subgraph Database_Structure
+    a[STUDENT]
+    b[INSTRUCTOR]
+    c[COURSE]
+    d[QUIZ]
+    e[ASSIGNMENT]
+    f[ENROLLMENT]
+    g[QUIZ_RESPONSE]
+    h[ASSIGNMENT_SUBMISSION]
+    i[PROGRESS]
+    j[MESSAGE]
+    k[LECTURE]
+  end
+
+  A -->|Login| a
+  B -->|View Dashboard| a
+  B -->|Manage Courses| b
+  C -->|View Course Details| c
+  C -->|Create Quiz| d
+  C -->|Create Assignment| e
+  C -->|Enroll Students| f
+  D -->|View Lecture| k
+  E -->|Take Quiz| g
+  F -->|Submit Assignment| h
+  G -->|Grade Submissions| h
+  I -->|View Progress| i
+  J -->|Send Message| j
+  J -->|View Messages| j
+```
